@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-server": "tslint -p . && tsc --skipLibCheck",
+    "watch-server": "cross-env NODE_ENV=development nodemon --watch 'src/**/*' -e ts --exec 'ts-node' src/server/server.ts",
+    "start": "node dist/server/server.js",
+    "start-server": "npm run build-server && npm run start"
   },
   "author": "",
   "license": "ISC",
